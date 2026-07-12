@@ -226,4 +226,5 @@ a { color: var(--cyan); text-decoration: none; }
   .story-point { position: static; opacity: 1; transform: none; pointer-events: auto; }
   .register-section { background: var(--black) url("scrub-last.jpg") center/cover no-repeat; }
   .scroll-arrow, .float-dot { animation: none; }
+  .float-register, .story-point { transition: none; }
 }
