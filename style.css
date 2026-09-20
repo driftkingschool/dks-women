@@ -92,6 +92,7 @@ a { color: var(--cyan); text-decoration: none; }
   box-shadow: 0 14px 44px rgba(227, 6, 19, 0.4);
 }
 .cta-wa { display: inline-flex; align-items: center; gap: 0.6rem; background: #25D366; box-shadow: 0 14px 44px rgba(37, 211, 102, 0.35); }
+.cta-alt { display: inline-flex; align-items: center; gap: 0.35rem; color: #25D366; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; margin-inline: 0.3rem; }
 .cta-microcopy { font-size: 0.9rem; color: var(--muted); margin-top: 0.7rem; text-shadow: var(--sh-soft); }
 
 /* ====== FLOATING CTA PILL (skill: cta-fastscroll) ====== */
