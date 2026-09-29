@@ -74,9 +74,12 @@
   if (!registerEl) return;
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // move keyboard focus to the register CTA once we land, so the next Tab stays in the register card
+  function landFocus() { var c = registerEl.querySelector('a.cta-primary'); if (c) c.focus({ preventScroll: true }); }
+
   function fastScrollToRegister() {
     var targetY = registerEl.getBoundingClientRect().top + window.pageYOffset;
-    if (reduced) { window.scrollTo(0, targetY); return; }
+    if (reduced) { window.scrollTo(0, targetY); landFocus(); return; }
     var startY = window.pageYOffset, delta = targetY - startY, duration = 1400, start = performance.now(), cancelled = false;
     function cleanup() { ['wheel', 'touchstart', 'keydown'].forEach(function (ev) { window.removeEventListener(ev, cancel); }); }
     function cancel() { cancelled = true; cleanup(); }
@@ -86,7 +89,7 @@
       if (cancelled) return;
       var p = Math.min(1, (now - start) / duration);
       window.scrollTo(0, startY + delta * ease(p));
-      if (p < 1) requestAnimationFrame(frame); else cleanup();
+      if (p < 1) requestAnimationFrame(frame); else { cleanup(); landFocus(); }
     }
     requestAnimationFrame(frame);
   }
@@ -106,7 +109,9 @@
       var rr = registerEl.getBoundingClientRect();
       var heroVisible = hr.bottom > vh * 0.05 && hr.top < vh * 0.95;
       var registerVisible = rr.bottom > vh * 0.15 && rr.top < vh * 0.85;
-      pill.classList.toggle('visible', !heroVisible && !registerVisible);
+      var show = !heroVisible && !registerVisible;
+      pill.classList.toggle('visible', show);
+      pill.inert = !show; // invisible pill is not a Tab stop
     }
     window.addEventListener('scroll', refresh, { passive: true });
     window.addEventListener('resize', refresh);
