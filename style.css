@@ -114,7 +114,7 @@ a { color: var(--cyan); text-decoration: none; }
 .hero { min-height: 100svh; display: flex; flex-direction: column; }
 .topbar { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 1.5rem; }
 .logo-wrap { display: flex; align-items: center; gap: 0.7rem; }
-.logo-img { width: 44px; height: 44px; object-fit: contain; }
+.logo-img { height: 44px; width: auto; }
 .logo-name { font-weight: 800; letter-spacing: 0.16em; font-size: 0.85rem; text-shadow: var(--sh-strong); }
 .topbar-back {
   color: #fff; font-weight: 600; font-size: 0.9rem;
@@ -198,19 +198,21 @@ a { color: var(--cyan); text-decoration: none; }
 .price-old-inline { font-size: 0.45em; font-weight: 700; color: rgba(255, 255, 255, 0.65); text-decoration: line-through; text-decoration-color: var(--red); }
 .register-sub { color: var(--muted); margin-bottom: 1.6rem; }
 .contact-strip { margin-top: 1.6rem; color: var(--muted); font-size: 0.95rem; }
-.phone-link { color: var(--cyan); font-weight: 700; direction: ltr; unicode-bidi: embed; }
+.phone-link { color: var(--cyan); font-weight: 700; direction: ltr; unicode-bidi: isolate; white-space: nowrap; }
 
 /* ====== FOOTER ====== */
 .footer { background: #060608; border-top: 1px solid var(--line); color: var(--muted); text-align: center; padding: 2.2rem 0; font-size: 0.92rem; }
 .footer .motto { color: var(--text); font-weight: 800; letter-spacing: 0.06em; margin-bottom: 0.4rem; }
 .footer a { color: rgba(255, 255, 255, 0.85); }
-.footer .legal { margin-top: 0.9rem; font-size: 0.8rem; color: rgba(255, 255, 255, 0.4); }
+.footer .legal { margin-top: 0.9rem; font-size: 0.8rem; color: rgba(255, 255, 255, 0.6); }
+.footer .legal a { white-space: nowrap; }
 
 /* ====== MOBILE ====== */
 @media (max-width: 560px) {
   .hero-content { padding: 1.2rem 1.25rem 5rem; }
   .topbar { padding: 0.9rem 1.1rem; }
   .logo-name { display: none; }
+  .logo-img { height: 36px; }
   .cta-primary { width: 100%; text-align: center; justify-content: center; }
   .story-points { height: 52vh; }
   .register-card { padding: 1.6rem 1.2rem; }
