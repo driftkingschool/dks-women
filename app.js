@@ -6,7 +6,7 @@
    Optional pinned .story (500vh) cross-fades .story-point items in the middle.
 
    Required markup:
-     <div id="video-bg"><video class="scrub-video" muted playsinline preload="auto" poster="scrub-poster.jpg">
+     <div id="video-bg"><video class="scrub-video" muted playsinline preload="auto" poster="scrub-poster.webp">
        <source src="scrub.mp4" type="video/mp4"></video></div>
      <div id="video-scrim"></div>
      ... content (z-index:2) ...
